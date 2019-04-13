@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-farmer-dashboard",
-  templateUrl: "./farmer-dashboard.component.html",
-  styleUrls: ["./farmer-dashboard.component.scss"]
+  selector: "app-form",
+  templateUrl: "./form.component.html",
+  styleUrls: ["./form.component.scss"]
 })
-export class FarmerDashboardComponent implements OnInit {
+export class FormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
@@ -15,6 +15,4 @@ export class FarmerDashboardComponent implements OnInit {
     { label: "Organic or conventional farm" },
     { label: "Start of reference period" }
   ];
-
-  model() {}
 }
