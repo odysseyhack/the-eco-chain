@@ -1,0 +1,140 @@
+@import "./../../styles.scss";
+
+.energy-label-one {
+  background-color: $color-shade-1;
+  width: 80px;
+  content: 'A+++';
+  color: white;
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    color: $color-shade-1;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+}
+
+.energy-label-two {
+  background-color: $color-shade-2;
+  width: 100px;
+  content: 'A++';
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    color: $color-shade-2;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+}
+.energy-label-three {
+  background-color: $color-shade-3;
+  width: 120px;
+  content: 'A+';
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    color: $color-shade-3;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+
+}
+.energy-label-four {
+  background-color: $color-shade-4;
+  width: 140px;
+  content: 'A';
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+  
+  &:after {
+    color: $color-shade-4;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+}
+.energy-label-five {
+  background-color: $color-shade-5;
+  width: 160px;
+  content: 'B';
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    color: $color-shade-5;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+}
+.energy-label-six {
+  background-color: $color-shade-6;
+  width: 180px;
+  content: 'C';
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    color: $color-shade-6;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+}
+.energy-label-seven {
+  background-color: $color-shade-7;
+  width: 200px;
+  content: 'D';
+  height: $energy-label-height;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    color: $color-shade-7;
+    border-left: ($energy-label-height / 2) solid;
+    border-top: ($energy-label-height / 2) solid transparent;
+    border-bottom: ($energy-label-height / 2) solid transparent;
+    display: inline-block;
+    content: '';
+    position: absolute;
+    right: ($energy-label-height / -2);
+  }
+}
+
+
