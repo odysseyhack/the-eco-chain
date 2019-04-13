@@ -25,9 +25,9 @@ export class UserDashboardComponent implements OnInit {
   chartType = 'Pie';
 
   options = {
-    width: 400,
     height: 300,
     bars: 'vertical',
+    legend: { position: 'bottom', textStyle: { fontSize: 10 } },
     hAxis: {
       title: 'Subject'
     },
