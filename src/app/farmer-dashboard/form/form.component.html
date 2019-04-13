@@ -1,23 +1,63 @@
-Hi!
+<clr-wizard #wizardmd [(clrWizardOpen)]="_open" clrWizardSize="xl">
+  <clr-wizard-title>Impact assessment</clr-wizard-title>
 
-<!-- <form class="clr-form clr-form-horizontal">
-  <div *ngFor="let q of questions" class="clr-form-control">
-    <label for="example" class="clr-control-label debug">{{ q.label }}</label>
-    <div class="clr-control-container">
-      <div class="clr-input-wrapper">
-        <input
-          type="text"
-          id="example"
-          placeholder="Example Input"
-          class="clr-input"
-        />
-        <clr-icon
-          class="clr-validate-icon"
-          shape="exclamation-circle"
-        ></clr-icon>
-      </div>
-      <span class="clr-subtext">Helper Text</span>
-    </div>
-  </div>
-  <button class="btn btn-primary">Submit</button>
-</form> -->
+  <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+  <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+  <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+  <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Crop</ng-template>
+    <p>This is for basic information about your crop</p>
+    <form>
+      <section class="form-block">
+        <div *ngFor="let q of questions.crop">
+          <h3>{{ q.name }}</h3>
+          <p>{{ q.description }}</p>
+
+          <div *ngFor="let t of q.fields" class="form-group">
+            <label for="favInput">{{ t.label }}</label>
+            <input
+              type="text"
+              id="favInput"
+              name="favorite"
+              value="{{ t.value }}"
+            />
+          </div>
+        </div>
+      </section>
+    </form>
+    <div class="form-group"></div>
+  </clr-wizard-page>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Soil</ng-template>
+    <p>Specify the soil characteristics of the field in your assessment.</p>
+    <form>
+      <section class="form-block">
+        <div *ngFor="let q of questions.soil">
+          <h3>{{ q.name }}</h3>
+          <p>{{ q.description }}</p>
+
+          <div *ngFor="let t of q.fields" class="form-group">
+            <label for="favInput">{{ t.label }}</label>
+            <input
+              type="text"
+              id="favInput"
+              name="favorite"
+              value="{{ t.value }}"
+            />
+          </div>
+        </div>
+      </section>
+    </form>
+    <div class="form-group"></div>
+  </clr-wizard-page>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Inputs</ng-template>
+    ...
+  </clr-wizard-page>
+</clr-wizard>
+
+<button (click)="open()" clrWizardOpen>Open Wizard</button>
