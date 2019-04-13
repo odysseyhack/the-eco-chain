@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class UserDashboardComponent implements OnInit {
   public constructor() {}
 
-  public labels = ['Local pasture', 'Imported', 'Other'];
-  data = [12, 14, 25];
+  public labels = ['Production', 'Packaging', 'Transport'];
+  data = [14, 4, 3];
 
   columnTypes = [
     {
@@ -25,6 +25,7 @@ export class UserDashboardComponent implements OnInit {
   chartType = 'Pie';
 
   options = {
+    width: 400,
     height: 300,
     bars: 'vertical',
     hAxis: {
