@@ -1,5 +1,7 @@
 # TheEcoChain
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/odysseyhack/the-eco-chain?branch=master&token=4cc75b2922b34b0376e5862bba7df513cfa50c47)](https://bettercodehub.com/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
 ## Development server
