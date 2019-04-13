@@ -1,117 +1,237 @@
+<app-header></app-header>
 <div class="container">
-  <div class="clr-row clr-justify-content-start">
-    <div class="clr-col-12">
-      <a class="card clickable">
-        <div class="card-block">
-          <div class="clr-col-12">
-            <h2>
-              <clr-icon shape="map-marker" size="30"></clr-icon>
-              Product Origin
-            </h2>
-            <h4>This is where your package of 1kg ground beef came from:</h4>
-            <iframe
-              src="https://snazzymaps.com/embed/148126"
-              width="100%"
-              height="400px"
-              style="border:none;"
-            ></iframe>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="clr-col-12">
-      <a class="card clickable">
-        <div class="card-block">
-          <div class="clr-col-12">
-            <h2>
-              <clr-icon shape="heart" class="is-solid" size="30"></clr-icon>
-              Nutrition & Health
-            </h2>
-            <div class="energy-label-two">
-              <span class="rating">A++</span>
+  <ng-container *ngIf="animal == 'cow'; else chicken">
+    <div class="clr-row clr-justify-content-start">
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="map-marker" size="30"></clr-icon>
+                Product Origin
+              </h2>
+              <h4>This is where your package of 1kg ground beef came from:</h4>
+              <iframe
+                src="https://snazzymaps.com/embed/148126"
+                width="100%"
+                height="400px"
+                style="border:none;"
+              ></iframe>
             </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Type</th>
-                  <th>Impact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>78% Local pasture</td>
-                  <td>12% Emissions</td>
-                </tr>
-                <tr>
-                  <td>18% Imported</td>
-                  <td>14% Emissions</td>
-                </tr>
-                <tr>
-                  <td>4% Other</td>
-                  <td>25% Emissions</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
+      </div>
 
-    <div class="clr-col-12">
-      <a class="card clickable">
-        <div class="card-block">
-          <div class="clr-col-12">
-            <h2>
-              <clr-icon shape="recycle" size="30"></clr-icon>
-              Footprint Overview
-            </h2>
-            <div class="energy-label-five">
-              <span class="rating">B</span>
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="heart" class="is-solid" size="30"></clr-icon>
+                Nutrition & Health
+              </h2>
+              <div class="energy-label-two">
+                <span class="rating">A++</span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Impact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>78% Local pasture</td>
+                    <td>12% Emissions</td>
+                  </tr>
+                  <tr>
+                    <td>18% Imported</td>
+                    <td>14% Emissions</td>
+                  </tr>
+                  <tr>
+                    <td>4% Other</td>
+                    <td>25% Emissions</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <h4>Total CO<sub>2</sub> produced: 21,7 kg</h4>
-            <div
-              class="chart"
-              chart
-              [data]="data"
-              [options]="options"
-              [labels]="labels"
-              [columnTypes]="columnTypes"
-              [chartType]="chartType"
-            ></div>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
+      </div>
 
-    <div class="clr-col-12">
-      <a class="card clickable">
-        <div class="card-block">
-          <div class="clr-col-12">
-            <h2>
-              <clr-icon shape="tree" size="30"></clr-icon>
-              Production facility
-            </h2>
-            <h3>Slachthuis Veenendaal</h3>
-            <div class="energy-label-two">A++</div>
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="recycle" size="30"></clr-icon>
+                Footprint Overview
+              </h2>
+              <div class="energy-label-five">
+                <span class="rating">B</span>
+              </div>
+              <h4>Total CO<sub>2</sub> produced: 21,7 kg</h4>
+              <div
+                class="chart"
+                chart
+                [data]="cowData"
+                [options]="options"
+                [labels]="labels"
+                [columnTypes]="columnTypes"
+                [chartType]="chartType"
+              ></div>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
+      </div>
 
-    <div class="clr-col-12">
-      <a class="card clickable">
-        <div class="card-block">
-          <div class="clr-col-12">
-            <h2>
-              <clr-icon shape="truck" size="30"></clr-icon>
-              Distributor
-            </h2>
-            <h3>Marqt Distribution B.V.</h3>
-            <div class="energy-label-three">A+</div>
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="tree" size="30"></clr-icon>
+                Production facility
+              </h2>
+              <h3>Slachthuis Veenendaal</h3>
+              <div class="energy-label-two">A++</div>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
+
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="truck" size="30"></clr-icon>
+                Distributor
+              </h2>
+              <h3>Marqt Distribution B.V.</h3>
+              <div class="energy-label-three">A+</div>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #chicken>
+    <div class="clr-row clr-justify-content-start">
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="map-marker" size="30"></clr-icon>
+                Product Origin
+              </h2>
+              <h4>This is where your package of 1kg chicken breasts came from:</h4>
+              <iframe
+                src="https://snazzymaps.com/embed/148211"
+                width="100%"
+                height="400px"
+                style="border:none;"
+              ></iframe>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="heart" class="is-solid" size="30"></clr-icon>
+                Nutrition & Health
+              </h2>
+              <div class="energy-label-two">
+                <span class="rating">A++</span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Impact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>86% Local pasture</td>
+                    <td>10% Emissions</td>
+                  </tr>
+                  <tr>
+                    <td>10% Imported</td>
+                    <td>14% Emissions</td>
+                  </tr>
+                  <tr>
+                    <td>4% Other</td>
+                    <td>14% Emissions</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="recycle" size="30"></clr-icon>
+                Footprint Overview
+              </h2>
+              <div class="energy-label-two">
+                <span class="rating">A++</span>
+              </div>
+              <h4>Total CO<sub>2</sub> produced: 4,7 kg</h4>
+              <div
+                class="chart"
+                chart
+                [data]="chickenData"
+                [options]="options"
+                [labels]="labels"
+                [columnTypes]="columnTypes"
+                [chartType]="chartType"
+              ></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="tree" size="30"></clr-icon>
+                Production facility
+              </h2>
+              <h3>Slachthuis Veenendaal</h3>
+              <div class="energy-label-two">A++</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="clr-col-12">
+        <a class="card clickable">
+          <div class="card-block">
+            <div class="clr-col-12">
+              <h2>
+                <clr-icon shape="truck" size="30"></clr-icon>
+                Distributor
+              </h2>
+              <h3>Marqt Distribution B.V.</h3>
+              <div class="energy-label-three">A+</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </ng-template>
 </div>

@@ -1,3 +1,4 @@
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.scss']
 })
 export class UserDashboardComponent implements OnInit {
-  public constructor() {}
+  public constructor(private route: ActivatedRoute) {}
 
-  public labels = ['Production', 'Packaging', 'Transport'];
-  data = [14, 4, 3];
+  public animal: string;
 
-  columnTypes = [
+  public labels: Array<string> = ['Production', 'Packaging', 'Transport'];
+  public cowData: Array<number> = [14, 4, 3];
+  public chickenData: Array<number> = [8, 2, 1];
+  public chartType = 'Pie';
+
+  public columnTypes: any = [
     {
       type: 'string',
       value: 'subjectName'
@@ -22,9 +27,7 @@ export class UserDashboardComponent implements OnInit {
     }
   ];
 
-  chartType = 'Pie';
-
-  options = {
+  public options: any = {
     height: 300,
     bars: 'vertical',
     legend: { position: 'bottom', textStyle: { fontSize: 10 } },
@@ -36,5 +39,12 @@ export class UserDashboardComponent implements OnInit {
     }
   };
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.animalChoice();
+  }
+
+  public animalChoice(): void {
+    this.animal = this.route.snapshot.paramMap.get('id');
+
+  }
 }
