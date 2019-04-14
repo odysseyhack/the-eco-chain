@@ -13,6 +13,7 @@ import { NgxGoogleMapModule } from 'ngx-google-map';
 import { Ng2GoogleChartModule } from 'ng2-googlechart';
 import { HomeComponent } from './home/home.component';
 import { ClaimsComponent } from './farmer-dashboard/claims/claims.component';
+import { BenchmarkComponent } from './farmer-dashboard/benchmark/benchmark.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ClaimsComponent } from './farmer-dashboard/claims/claims.component';
     FormComponent,
     SidenavComponent,
     HomeComponent,
-    ClaimsComponent
+    ClaimsComponent,
+    BenchmarkComponent
   ],
   imports: [
     BrowserModule,
