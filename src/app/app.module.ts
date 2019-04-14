@@ -12,6 +12,12 @@ import { SidenavComponent } from './farmer-dashboard/sidenav/sidenav.component';
 import { NgxGoogleMapModule } from 'ngx-google-map';
 import { Ng2GoogleChartModule } from 'ng2-googlechart';
 import { HomeComponent } from './home/home.component';
+import { ClaimsComponent } from './farmer-dashboard/claims/claims.component';
+import { BenchmarkComponent } from './farmer-dashboard/benchmark/benchmark.component';
+import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
+import more from 'highcharts/highcharts-more.src';
+import exporting from 'highcharts/modules/exporting.src';
+import stock from 'highcharts/modules/stock.src';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,9 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FormComponent,
     SidenavComponent,
-    HomeComponent
+    HomeComponent,
+    ClaimsComponent,
+    BenchmarkComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +37,10 @@ import { HomeComponent } from './home/home.component';
     ClarityModule,
     BrowserAnimationsModule,
     NgxGoogleMapModule,
-    Ng2GoogleChartModule
+    Ng2GoogleChartModule,
+    ChartModule
   ],
-  providers: [],
+  providers: [{ provide: HIGHCHARTS_MODULES, useFactory: () => [stock, more, exporting] }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
