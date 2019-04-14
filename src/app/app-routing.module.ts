@@ -6,38 +6,9 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './farmer-dashboard/form/form.component';
 import { BenchmarkComponent } from './farmer-dashboard/benchmark/benchmark.component';
-
 const routes: Routes = [
-  {
-    path: 'farmer',
-    component: FarmerDashboardComponent,
-    children: [
-      {
-        path: 'claims',
-        component: ClaimsComponent,
-      },
-      {
-        path: 'benchmark',
-        component: BenchmarkComponent,
-      },
-      {
-        path: 'form',
-        component: FormComponent,
-      },
-    ]
-  },
-  {
-    path: 'user/:id',
-    component: UserDashboardComponent,
-  },
-  {
-    path: '',
-    component: HomeComponent,
-  }
+  { path: 'farmer', component: FarmerDashboardComponent, children: [// tslint:disable-next-line:max-line-length
+      {path: 'claims', component: ClaimsComponent, }, {path: 'benchmark', component: BenchmarkComponent, }, {path: 'form', component: FormComponent, }, ]}, { path: 'user/:id', component: UserDashboardComponent, }, {path: '', component: HomeComponent, }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
+@NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule]})
 export class AppRoutingModule {}
