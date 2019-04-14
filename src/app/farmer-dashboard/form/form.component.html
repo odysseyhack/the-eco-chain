@@ -79,11 +79,17 @@
     <clr-dg-cell>April 14 2019</clr-dg-cell>
     <clr-dg-cell>50 MT</clr-dg-cell>
     <clr-dg-cell>10 MT</clr-dg-cell>
-    <clr-dg-cell
-      ><button class="btn btn-sm btn-in-grid" (click)="openClaimsModal()" >
+    <clr-dg-cell>
+      <button class="btn btn-sm btn-in-grid" (click)="openDraftClaimModal()">
+        <clr-icon shape="zoom-in"></clr-icon>&nbsp;View draft
+      </button>
+      <button
+        class="btn btn-sm btn-in-grid btn-success-outline"
+        (click)="openClaimsModal()"
+      >
         <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
-      </button></clr-dg-cell
-    >
+      </button>
+    </clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-row>
@@ -91,11 +97,17 @@
     <clr-dg-cell>April 8 2019</clr-dg-cell>
     <clr-dg-cell>25 MT</clr-dg-cell>
     <clr-dg-cell>5 MT</clr-dg-cell>
-    <clr-dg-cell
-      ><button class="btn btn-sm btn-in-grid" (click)="openClaimsModal()" >
+    <clr-dg-cell>
+      <button class="btn btn-sm btn-in-grid" (click)="openDraftClaimModal()">
+        <clr-icon shape="zoom-in"></clr-icon>&nbsp;View draft
+      </button>
+      <button
+        class="btn btn-sm btn-in-grid btn-success-outline"
+        (click)="openClaimsModal()"
+      >
         <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
-      </button></clr-dg-cell
-    >
+      </button>
+    </clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-row>
@@ -103,11 +115,17 @@
     <clr-dg-cell>April 3 2019</clr-dg-cell>
     <clr-dg-cell>7 MT</clr-dg-cell>
     <clr-dg-cell>0.5 MT</clr-dg-cell>
-    <clr-dg-cell
-      ><button class="btn btn-sm btn-in-grid" (click)="openClaimsModal()" >
+    <clr-dg-cell>
+      <button class="btn btn-sm btn-in-grid" (click)="openDraftClaimModal()">
+        <clr-icon shape="zoom-in"></clr-icon>&nbsp;View draft
+      </button>
+      <button
+        class="btn btn-sm btn-in-grid btn-success-outline"
+        (click)="openClaimsModal()"
+      >
         <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
-      </button></clr-dg-cell
-    >
+      </button>
+    </clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-row>
@@ -122,14 +140,52 @@
 </clr-datagrid>
 
 <clr-modal [(clrModalOpen)]="openClaim">
-    <h3 class="modal-title">You're about to open a claim</h3>
-    <div class="modal-body">
-        <p>Are you sure you certify that the input below is truthful?</p>
-        <p class="debug">TODO PREVIEW DUMP GOES HERE</p>
-        <p>Based on your claim size, your stake is calculated for you: 1,000 ETH</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="openClaim = false">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="openClaim = false" routerLink="/farmer/claims">Ok</button>
-    </div>
+  <h3 class="modal-title">You're about to open a claim</h3>
+  <div class="modal-body">
+    <p>Are you sure you certify that the input below is truthful?</p>
+    <p class="debug">TODO PREVIEW DUMP GOES HERE</p>
+    <p>Based on your claim size, your stake is calculated for you: 1,000 ETH</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="openClaim = false">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="processClaim()">
+      Ok
+    </button>
+  </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="openDraftClaim">
+  <h3 class="modal-title">Draft claim</h3>
+  <div class="modal-body">
+    <form action="">
+      <section class="form-block">
+        <div *ngFor="let q of questions.crop">
+          <h3>{{ q.name }}</h3>
+          <p>{{ q.description }}</p>
+
+          <div *ngFor="let t of q.fields" class="form-group">
+            <label for="favInput">{{ t.value }}</label>
+            <input
+              type="text"
+              id="favInput"
+              name="favorite"
+              disabled
+              value="{{ t.value }}"
+            />
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="openDraftClaim = false"
+    >
+      Ok
+    </button>
+  </div>
 </clr-modal>

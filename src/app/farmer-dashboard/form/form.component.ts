@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ClrWizard } from '@clr/angular';
 
@@ -7,13 +8,14 @@ import { ClrWizard } from '@clr/angular';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  constructor() {}
+  public constructor(public router: Router) {}
 
   @ViewChild('wizardmd') wizardMedium: ClrWizard;
   // tslint:disable-next-line:variable-name
   private _open = false;
   public openClaim = false;
-
+  public openDraftClaim = false;
+  public showSpinner = false;
   public questions: object = {
     crop: [
       {
@@ -68,6 +70,20 @@ export class FormComponent implements OnInit {
 
   public openClaimsModal() {
     this.openClaim = true;
+  }
+
+  public openDraftClaimModal() {
+    this.openDraftClaim = true;
+  }
+
+  public processClaim() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.openClaim = false;
+      this.showSpinner = false;
+      this.router.navigate(['farmer/claims']);
+    }, 2000);
+
   }
 
   public open(): void {
