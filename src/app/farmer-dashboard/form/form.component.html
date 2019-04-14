@@ -1,4 +1,9 @@
-<clr-wizard #wizardmd [(clrWizardOpen)]="_open" clrWizardSize="xl">
+<clr-wizard
+  #wizardmd
+  [(clrWizardOpen)]="_open"
+  clrWizardSize="xl"
+  (clrWizardOnFinish)="doFinish()"
+>
   <clr-wizard-title>Impact assessment</clr-wizard-title>
 
   <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
@@ -60,4 +65,58 @@
   </clr-wizard-page>
 </clr-wizard>
 
-<button (click)="open()" clrWizardOpen>Open Wizard</button>
+<h2>Previously produced crops</h2>
+
+<clr-datagrid>
+  <clr-dg-column>Product ID</clr-dg-column>
+  <clr-dg-column>Harvest Date</clr-dg-column>
+  <clr-dg-column>Yield</clr-dg-column>
+  <clr-dg-column>CO2 eq emitted</clr-dg-column>
+  <clr-dg-column>Claim</clr-dg-column>
+
+  <clr-dg-row *ngIf="submitted">
+    <clr-dg-cell>wheat:field-1:spring2019</clr-dg-cell>
+    <clr-dg-cell>April 14 2019</clr-dg-cell>
+    <clr-dg-cell>50 MT</clr-dg-cell>
+    <clr-dg-cell>10 MT</clr-dg-cell>
+    <clr-dg-cell
+      ><button class="btn btn-sm btn-in-grid" (click)="open()" clrWizardOpen>
+        <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
+      </button></clr-dg-cell
+    >
+  </clr-dg-row>
+
+  <clr-dg-row>
+    <clr-dg-cell>wheat:field-2:spring2019</clr-dg-cell>
+    <clr-dg-cell>April 8 2019</clr-dg-cell>
+    <clr-dg-cell>25 MT</clr-dg-cell>
+    <clr-dg-cell>5 MT</clr-dg-cell>
+    <clr-dg-cell
+      ><button class="btn btn-sm btn-in-grid" (click)="open()" clrWizardOpen>
+        <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
+      </button></clr-dg-cell
+    >
+  </clr-dg-row>
+
+  <clr-dg-row>
+    <clr-dg-cell>straw:field-5:spring2019</clr-dg-cell>
+    <clr-dg-cell>April 3 2019</clr-dg-cell>
+    <clr-dg-cell>7 MT</clr-dg-cell>
+    <clr-dg-cell>0.5 MT</clr-dg-cell>
+    <clr-dg-cell
+      ><button class="btn btn-sm btn-in-grid" (click)="open()" clrWizardOpen>
+        <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
+      </button></clr-dg-cell
+    >
+  </clr-dg-row>
+
+  <clr-dg-row>
+    <clr-dg-cell
+      ><button class="btn btn-secondary" (click)="open()" clrWizardOpen>
+        <clr-icon shape="plus"></clr-icon>&nbsp;Add Product
+      </button></clr-dg-cell
+    >
+  </clr-dg-row>
+
+  <!-- <clr-dg-footer>{{ users.length }} users</clr-dg-footer> -->
+</clr-datagrid>
