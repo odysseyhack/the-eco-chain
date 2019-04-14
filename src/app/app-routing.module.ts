@@ -15,29 +15,24 @@ const routes: Routes = [
       {
         path: 'claims',
         component: ClaimsComponent,
-        children: []
       },
       {
         path: 'benchmark',
         component: BenchmarkComponent,
-        children: []
       },
       {
         path: 'form',
         component: FormComponent,
-        children: []
       },
     ]
   },
   {
     path: 'user/:id',
     component: UserDashboardComponent,
-    children: []
   },
   {
     path: '',
     component: HomeComponent,
-    children: []
   }
 ];
 
