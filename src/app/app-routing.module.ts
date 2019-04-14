@@ -1,17 +1,23 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { FarmerDashboardComponent } from './farmer-dashboard/farmer-dashboard.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { FarmerDashboardComponent } from "./farmer-dashboard/farmer-dashboard.component";
+import { UserDashboardComponent } from "./user-dashboard/user-dashboard.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   {
-    path: 'farmer',
+    path: "farmer",
     component: FarmerDashboardComponent,
     children: []
   },
   {
-    path: 'user/:id',
+    path: "user/:id",
     component: UserDashboardComponent,
+    children: []
+  },
+  {
+    path: "",
+    component: HomeComponent,
     children: []
   }
 ];
