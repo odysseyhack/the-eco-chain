@@ -80,7 +80,7 @@
     <clr-dg-cell>50 MT</clr-dg-cell>
     <clr-dg-cell>10 MT</clr-dg-cell>
     <clr-dg-cell
-      ><button class="btn btn-sm btn-in-grid" (click)="open()" clrWizardOpen>
+      ><button class="btn btn-sm btn-in-grid" (click)="openClaimsModal()" >
         <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
       </button></clr-dg-cell
     >
@@ -92,7 +92,7 @@
     <clr-dg-cell>25 MT</clr-dg-cell>
     <clr-dg-cell>5 MT</clr-dg-cell>
     <clr-dg-cell
-      ><button class="btn btn-sm btn-in-grid" (click)="open()" clrWizardOpen>
+      ><button class="btn btn-sm btn-in-grid" (click)="openClaimsModal()" >
         <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
       </button></clr-dg-cell
     >
@@ -104,7 +104,7 @@
     <clr-dg-cell>7 MT</clr-dg-cell>
     <clr-dg-cell>0.5 MT</clr-dg-cell>
     <clr-dg-cell
-      ><button class="btn btn-sm btn-in-grid" (click)="open()" clrWizardOpen>
+      ><button class="btn btn-sm btn-in-grid" (click)="openClaimsModal()" >
         <clr-icon shape="bitcoin"></clr-icon>&nbsp;Make claim
       </button></clr-dg-cell
     >
@@ -120,3 +120,16 @@
 
   <!-- <clr-dg-footer>{{ users.length }} users</clr-dg-footer> -->
 </clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="openClaim">
+    <h3 class="modal-title">You're about to open a claim</h3>
+    <div class="modal-body">
+        <p>Are you sure you certify that the input below is truthful?</p>
+        <p class="debug">TODO PREVIEW DUMP GOES HERE</p>
+        <p>Based on your claim size, your stake is calculated for you: 1,000 ETH</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="openClaim = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="openClaim = false" routerLink="/farmer/claims">Ok</button>
+    </div>
+</clr-modal>

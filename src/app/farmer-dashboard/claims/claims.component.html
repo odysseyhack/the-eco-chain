@@ -1,3 +1,7 @@
-<p>
-  claims works!
-</p>
+<clr-alert [clrAlertType]="'success'" (clrAlertClosedChange)="onClose()">
+    <clr-alert-item>
+        <span class="alert-text">
+            Your claim has sucessfully been processed!
+        </span>
+    </clr-alert-item>
+</clr-alert>
