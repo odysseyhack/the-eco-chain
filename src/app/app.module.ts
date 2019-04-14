@@ -18,6 +18,7 @@ import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import more from 'highcharts/highcharts-more.src';
 import exporting from 'highcharts/modules/exporting.src';
 import stock from 'highcharts/modules/stock.src';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import stock from 'highcharts/modules/stock.src';
     SidenavComponent,
     HomeComponent,
     ClaimsComponent,
-    BenchmarkComponent
+    BenchmarkComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

@@ -83,7 +83,6 @@ export class FormComponent implements OnInit {
       this.showSpinner = false;
       this.router.navigate(['farmer/claims']);
     }, 2000);
-
   }
 
   public open(): void {
@@ -98,22 +97,24 @@ export class FormComponent implements OnInit {
   }
 
   public makeClaim(): void {
-    console.log("making claim to blockchain");
+    console.log('making claim to blockchain');
     fetch(
-      "http://ec2-35-156-84-202.eu-central-1.compute.amazonaws.com/adapter",
+      'http://ec2-35-156-84-202.eu-central-1.compute.amazonaws.com/adapter',
       {
-        credentials: "include",
+        credentials: 'include',
+        mode: 'no-cors',
         headers: {
-          accept: "*/*",
-          authorization: "Bearer cac450bc-8d98-4633-8522-3dd1467c11b2",
-          "content-type": "application/json",
-          pragma: "no-cache"
+          'access-control-allow-headers': '*',
+          accept: '*/*',
+          authorization: 'Bearer cac450bc-8d98-4633-8522-3dd1467c11b2',
+          'content-type': 'application/json',
+          pragma: 'no-cache'
         },
         body:
-          '{"function": "getClaim", "params": { "productURN": "One must be fond of people and trus" }}',
-        method: "POST"
+          '{"function": "getClaim", "params": { "productURN": "One must be fond of people and trust" }}',
+        method: 'POST'
       }
-    ).then(function(myJson) {
+    ).then(myJson => {
       console.log(JSON.stringify(myJson));
     });
   }

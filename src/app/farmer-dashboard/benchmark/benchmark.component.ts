@@ -23,7 +23,7 @@ export class BenchmarkComponent implements OnInit, AfterViewInit {
         type: 'line'
       },
       title: {
-        text: 'Linechart'
+        text: 'CO2 Emissions projection'
       },
       credits: {
         enabled: false
@@ -31,7 +31,7 @@ export class BenchmarkComponent implements OnInit, AfterViewInit {
       series: [
         {
           name: 'Line 1',
-          data: [1, 2, 3],
+          data: [200, 250, 170, 190, 160, 155, 154, 140],
           type: 'line'
         }
       ]
