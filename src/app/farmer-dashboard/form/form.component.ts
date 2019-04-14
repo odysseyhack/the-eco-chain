@@ -75,4 +75,25 @@ export class FormComponent implements OnInit {
     console.log("do finish");
     this.submitted = true;
   }
+
+  public makeClaim(): void {
+    console.log("making claim to blockchain");
+    fetch(
+      "http://ec2-35-156-84-202.eu-central-1.compute.amazonaws.com/adapter",
+      {
+        credentials: "include",
+        headers: {
+          accept: "*/*",
+          authorization: "Bearer cac450bc-8d98-4633-8522-3dd1467c11b2",
+          "content-type": "application/json",
+          pragma: "no-cache"
+        },
+        body:
+          '{"function": "getClaim", "params": { "productURN": "One must be fond of people and trus" }}',
+        method: "POST"
+      }
+    ).then(function(myJson) {
+      console.log(JSON.stringify(myJson));
+    });
+  }
 }
