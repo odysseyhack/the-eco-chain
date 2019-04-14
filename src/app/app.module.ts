@@ -12,6 +12,7 @@ import { SidenavComponent } from './farmer-dashboard/sidenav/sidenav.component';
 import { NgxGoogleMapModule } from 'ngx-google-map';
 import { Ng2GoogleChartModule } from 'ng2-googlechart';
 import { HomeComponent } from './home/home.component';
+import { ClaimsComponent } from './farmer-dashboard/claims/claims.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FormComponent,
     SidenavComponent,
-    HomeComponent
+    HomeComponent,
+    ClaimsComponent
   ],
   imports: [
     BrowserModule,
